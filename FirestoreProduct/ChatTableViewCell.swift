@@ -9,7 +9,9 @@ import UIKit
 import Firebase
 
 class ChatTableViewCell: UITableViewCell {
-    
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var messageLabel: UILabel!
+    @IBOutlet var dateLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,5 +23,6 @@ class ChatTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
     
 }

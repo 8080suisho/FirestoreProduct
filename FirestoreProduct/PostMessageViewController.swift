@@ -38,7 +38,7 @@ class PostMessageViewController: UIViewController {
                 "userName": name,
                 "message": message,
                 "postTime":postTime,
-                "lastUpdated": FieldValue.serverTimestamp(),
+                "lastUpdated": FieldValue.serverTimestamp()
             ]) { error in
             if error != nil {
                     // エラー処理

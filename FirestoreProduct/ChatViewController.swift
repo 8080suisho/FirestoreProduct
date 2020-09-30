@@ -11,7 +11,7 @@ import Firebase
 class ChatViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var listTableView: UITableView!
-    var postArray = [Any]()
+    var postArray = [Post]()
     let db = Firestore.firestore()
     
     override func viewDidLoad() {
@@ -30,7 +30,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         
         super.viewWillAppear(animated)
-        db.collection("users").getDocuments { (snapshot, error) in
+        db.collection("users").order(by: "lastUpdated", descending: true).getDocuments { (snapshot, error) in
             if error == nil, let snapshot = snapshot {
                 self.postArray = []
                 for document in snapshot.documents {
@@ -38,7 +38,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
                     let post = Post(data: data)
                     self.postArray.append(post)
                 }
-                print(self.postArray)
+                self.listTableView.reloadData()
             }
         }
     }
@@ -60,7 +60,9 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ChatTableViewCell
-        cell.textLabel?.text = "テスト"
+        cell.nameLabel?.text = postArray[indexPath.row].userName
+        cell.messageLabel?.text = postArray[indexPath.row].message
+        cell.dateLabel?.text = postArray[indexPath.row].postTime
         
         return cell
     }
@@ -70,6 +72,7 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.dismiss(animated: true, completion: nil)
     }
     
+   
     
     
 

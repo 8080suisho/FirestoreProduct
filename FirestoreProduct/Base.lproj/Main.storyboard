@@ -82,7 +82,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="tb5-vY-Urb">
                             <connections>
-                                <segue destination="3eV-d5-Een" kind="presentation" id="Ttj-qr-r1r"/>
+                                <segue destination="3eV-d5-Een" kind="presentation" modalPresentationStyle="fullScreen" id="Ttj-qr-r1r"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -99,7 +99,7 @@
             <objects>
                 <viewController id="3eV-d5-Een" customClass="PostMessageViewController" customModule="FirestoreProduct" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mwc-Y6-IWt">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zqy-Nb-DIx">
